@@ -1,0 +1,1 @@
+This project is for demo-purposes only, but if you find it usefull, you are free to use any code inside as permitted by the MIT-License.
