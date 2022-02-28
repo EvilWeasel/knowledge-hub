@@ -4,7 +4,8 @@
   "description": "This project is for demo-purposes only, but if you find it usefull, you are free to use any code inside as permitted by the MIT-License.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
