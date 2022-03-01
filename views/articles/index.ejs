@@ -25,6 +25,12 @@
                         <%= article.description %>
                     </div>
                     <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                    <a href="/articles/edit/<%= article.slug %>" class="btn btn-info">Edit</a>
+                    <%# implementation of method-override %> 
+                    <%# overrides the given "POST"-Method with "DELETE" %> 
+                    <%# using an anchor-tag for deletes is bad-practice %> 
+                    <%# because web-crawlers could "click" through all links on the site and %> 
+                    <%# inadvertently delete the entire database... das not gud -_- %> 
                     <form action="/articles/<%= article.id %>?_method=DELETE" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const port = 7777;
+const port = process.env.PORT || 7777;
 
 // set urlencoded
 // makes all request parameters available
