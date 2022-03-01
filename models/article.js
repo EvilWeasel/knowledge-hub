@@ -10,6 +10,10 @@ const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
 const dompurify = createDomPurify(new JSDOM().window)
 
+// Article Schema
+// Describes the structure of an article to the database and the back-end
+// Uses slugs for URL-Routing and human readable urls
+// Also has the sanitized Html pre-proccessed, for fast loading on the client-side
 const articleSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -38,6 +42,7 @@ const articleSchema = new mongoose.Schema({
 })
 // runs every time before saving to the database
 // this is used to create a slug for the article
+// this also works for updating the slug when the title changes :O
 articleSchema.pre('validate', function(){
     if(this.title) {
         this.slug = slugify(this.title, {lower: true, strict: true})
