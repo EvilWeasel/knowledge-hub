@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 // returns a form to edit the given article
 // the form is rendered as a partial in the new view
 router.get('/new', (req, res) => {
-    res.render('articles/new', {article: new Article()});
+    res.render('articles/new', {title: 'New Article', article: new Article()});
 });
 
 // edit article route
@@ -23,7 +23,7 @@ router.get('/new', (req, res) => {
 // the form is rendered as a partial in the new view
 router.get('/edit/:slug', async (req, res) => {
     const article = await Article.findOne({slug: req.params.slug});
-    res.render('articles/edit', {article: article});
+    res.render('articles/edit', {title: 'Edit Article', article: article});
 });
 
 
@@ -34,7 +34,7 @@ router.get('/edit/:slug', async (req, res) => {
 router.get('/:slug', async (req, res) => {
     const article = await Article.findOne({slug: req.params.slug});
     if(article === null) res.redirect('/', {error: `Article "${req.params.slug}" not found`});
-    res.render('articles/show', {article: article});
+    res.render('articles/show', {title: req.params.slug, article: article});
         
 })
 
@@ -76,6 +76,17 @@ function saveArticleAndRedirect(path){
     }
 }
 
+// possibly not the best solution, but it works
+// should be client-sided filtering
+router.post('/search/', async (req, res) => {
+    try {
+        let articles = await (await Article.find()).filter(article => article.title.toLowerCase().includes(req.body.query.toLowerCase()))
+        res.redirect(`/articles/${articles[0].slug}`)
+    } catch (error) {
+        console.log(error)
+        res.redirect('/')
+    }
+})
 
 
 module.exports = router;
