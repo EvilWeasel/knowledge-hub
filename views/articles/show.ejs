@@ -4,9 +4,10 @@
         <div class="text-muted mb-2">
             <%= article.createdAt.toLocaleDateString()%>
         </div>
-        <a href="/articles/" class="btn btn-secondary">All Articles</a>
-        <a href="/articles/edit/<%= article.slug %>" class="btn btn-secondary">Edit</a>
-        <div>
+        <div class="menu mb-4">
+            <a href="/articles/edit/<%= article.slug %>" class="btn btn-secondary">Bearbeiten</a>
+        </div>
+        <div class="mdPreview">
             <%- article.sanitizedHtml %> 
         </div> 
     </div>
