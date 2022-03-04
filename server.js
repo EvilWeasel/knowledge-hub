@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const port = process.env.PORT || 7777;
+const mongo_port = process.env.MONGO_PORT || 27017;
 const path = require('path');
 
 // set urlencoded
@@ -25,9 +26,13 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // connect to mongo-db
-mongoose.connect('mongodb://localhost/blog', {
+mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
     useNewUrlParser: true,
-    useUnifiedTopology:true
+    useUnifiedTopology:true,
+    auth:{
+        user: 'root',
+        password: 'root'
+    }
 });
 
 // add routes to the app
