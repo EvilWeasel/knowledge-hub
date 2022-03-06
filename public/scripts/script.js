@@ -13,3 +13,6 @@ $(document).ready(function() {
     })
 })
 
+function confirmDelete(){
+    alert()
+}
