@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const port = process.env.PORT || 7777;
 const mongo_port = process.env.MONGO_PORT || 27017;
+const mongo_username = process.env.MONGO_USERNAME || 'root';
+const mongo_password = process.env.MONGO_PASSWORD || 'root';
 const path = require('path');
 
 // set urlencoded
@@ -26,13 +28,28 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // connect to mongo-db
+//mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
+    //useNewUrlParser: true,
+    //useUnifiedTopology:true,
+    //auth:{
+        //username: 'root',
+        //password: 'root'
+    //}
+//});
+
+//mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
+    //authSource: "admin",
+    //user: mongo_username,
+    //pass: mongo_password,
+    //useNewUrlParser: true,
+    //useUnifiedTopology: true,
+    //useCreateIndex: true,
+    //useFindAndModify: false,
+//});
+
 mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
     useNewUrlParser: true,
-    useUnifiedTopology:true,
-    auth:{
-        user: 'root',
-        password: 'root'
-    }
+    useUnifiedTopology: true,
 });
 
 // add routes to the app
