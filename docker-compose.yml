@@ -1,36 +1,28 @@
-version: '0.1'
+version: '3.4'
+
 services:
-  web:
+  knowledgehub:
     depends_on:
       - mongo
-    build: './'
-    working_dir: '/app'
-    volumes:
-      - ./:/app
-    ports:
-      - '7777:7777'
-    command: [ "node", "server.js" ]
-    networks:
-      - web
-      - backend
+    image: knowledgehub
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
-      - MONGO_HOST=mongo
-      - MONGO_PORT=27017
-      - MONGO_USERNAME=root
-      - MONGO_PASSWORD=root
-      - MONGO_DATABASE=knowledge-hub
+      NODE_ENV: production
+      MONGO_PORT: 27017
+    ports:
+      - 8888:7777
+    restart: always
 
   mongo:
     image: mongo
     container_name: mongo
     ports:
-      - "7778:27017"
+      - "27018:27017"
     volumes:
       - /data/db:/data/db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
-      - MONGO_INITDB_DATABASE=knowledge-hub
+      MONGO_INITDB_DATABASE: knowledgehub
+      MONGO_PORT: 27017
     restart: always
-    networks:
-      - backend
