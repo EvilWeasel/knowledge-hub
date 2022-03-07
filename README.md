@@ -2,7 +2,9 @@
 
 ---
 
-This project is for demo-purposes only, but if you find it usefull, you are free to use any code inside as permitted by the MIT-License.
+This project is for demo-purposes only, but if you find it usefull, you are free to use any code / documentation inside as permitted by the MIT-License.
+
+This idea is based on a video linked [here...](https://www.youtube.com/watch?v=1NrHkjlWVhM)
 
 ---
 
@@ -33,6 +35,8 @@ The goal for this project is to create a MVP with all the essential features to 
 
 ![Project-Timeline](https://i.imgur.com/rSr6uvm.png)
 
+---
+
 ## Stakeholder-Analyses
 
 ### Employees
@@ -46,6 +50,8 @@ The goal for this project is to create a MVP with all the essential features to 
 - Reducing of search-times for technical documentation
 
 - Deligate employees to update important articles when outdated
+
+---
 
 ## Used Technology
 
@@ -125,6 +131,30 @@ The goal for this project is to create a MVP with all the essential features to 
 
     - could lead to deletion of entire db!
 
+---
+
+## Deployment-Strategy
+
+For easy deployment on the customers server, I decided to package my application as a docker-image. Docker images are self-contained environments for applications. They contain the complete application and all dependencies already built. This way, all the customer has to do, is:
+
+1. Setup a server with [docker](https://docs.docker.com/get-docker/) installed
+
+2. Either clone the repository and build the image from source using:
+  
+  ```bash
+  #!/bin/bash
+  docker compose build
+  ```
+
+  And then start-up the stack
+
+  ```bash
+  #!/bin/bash
+  docker compose up -d
+  ```
+
+  The `-d` optional flag starts the all containers, including the app without attaching the process to the running terminal.
+
 ## Review
 
 ### Current State
@@ -163,10 +193,12 @@ The problem I had with this strategy was the database.
 MongoDB as a container doesn't seem to work with particular cpu's... incidentally including the one installed inside my rented vps-server.
 So I couldn't get the database working on my remote-server. Thankfully this doesn't prevent me from starting the server locally, but this highlights other issues i need to resolve before publishing the application.
 
+---
+
 ## Summary
 
 This whole project was a lot of fun overall. Trying out a few new things, getting comfortable with technology I am already using and learning new ways to accomplish my goals.
-However it also highlighted many things I didn't plan for. I wanted to document these issues I had, to hopefully be more wary in the future and have
+However it also highlighted many things I didn't plan for. I wanted to document these issues I had, to hopefully be more wary in the future and have a solution for them.
 
 ## Future-Development
 
@@ -181,3 +213,5 @@ However it also highlighted many things I didn't plan for. I wanted to document 
 - [ ] Add SSL-certificate
 
 - [ ] Refine Docs
+
+  - Documentation for administration of the site and database

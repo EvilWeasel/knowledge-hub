@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/EvilWeasel/knowledge-hub#readme",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "pandoc": "^0.2.0"
   },
   "dependencies": {
     "dompurify": "^2.3.6",
