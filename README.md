@@ -4,7 +4,7 @@
 
 This project is for demo-purposes only, but if you find it usefull, you are free to use any code / documentation inside as permitted by the MIT-License.
 
-This idea is based on a video linked [here...](https://www.youtube.com/watch?v=1NrHkjlWVhM)
+This idea is based on a video linked [here...][idea]
 
 ---
 
@@ -16,6 +16,7 @@ This idea is based on a video linked [here...](https://www.youtube.com/watch?v=1
 4. [Deployment Strategy](#deployment-strategy)
 5. [Review](#review)
 6. [Plans for future development](#future-development)
+7. [How to Participate in Development](#how-to-participate-in-development)
 
 ## Introduction
 
@@ -33,7 +34,7 @@ The goal for this project is to create a MVP with all the essential features to 
 
 ### Project-Timeline
 
-![Project-Timeline](https://i.imgur.com/rSr6uvm.png)
+![Project-Timeline][project-timeline]
 
 ---
 
@@ -137,10 +138,10 @@ The goal for this project is to create a MVP with all the essential features to 
 
 For easy deployment on the customers server, I decided to package my application as a docker-image. Docker images are self-contained environments for applications. They contain the complete application and all dependencies already built. This way, all the customer has to do, is:
 
-1. Setup a server with [docker](https://docs.docker.com/get-docker/) installed
+1. Setup a server with [docker][docker] installed
 
-2. Either clone the repository and build the image from source using:
-  
+2. Clone the repository and build the image from source using:
+
   ```bash
   #!/bin/bash
   docker compose build
@@ -154,6 +155,10 @@ For easy deployment on the customers server, I decided to package my application
   ```
 
   The `-d` optional flag starts the all containers, including the app without attaching the process to the running terminal.
+
+3. Verify that everything is working by going to localhost:7777 and adding one article
+
+---
 
 ## Review
 
@@ -200,6 +205,8 @@ So I couldn't get the database working on my remote-server. Thankfully this does
 This whole project was a lot of fun overall. Trying out a few new things, getting comfortable with technology I am already using and learning new ways to accomplish my goals.
 However it also highlighted many things I didn't plan for. I wanted to document these issues I had, to hopefully be more wary in the future and have a solution for them.
 
+---
+
 ## Future-Development
 
 - [ ] Implement image-upload
@@ -215,3 +222,27 @@ However it also highlighted many things I didn't plan for. I wanted to document 
 - [ ] Refine Docs
 
   - Documentation for administration of the site and database
+
+## How to Participate in Development
+
+1. Fork this repository for yourself
+
+2. Clone your fork to your local machine
+
+3. Open the repository in vscode
+
+4. *(optional)* Open in devcontainer with the [`remote container`][remote-container] extension
+
+To debug inside the dev-container just make sure nodemon is running (should be default) and use the default debug config, which should automatically attach to nodemon.
+
+ToDo: 
+
+  - [ ] Remove the start of nodemon from the devcontainer-setup --> always showing `Configuring Dev Container...`
+
+  - [ ] Fix vscode internal debugger not working when attaching --> watch / callstack / breakpoints not working
+
+
+[remote-container]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+[docker]: https://docs.docker.com/get-docker/
+[idea]: https://www.youtube.com/watch?v=1NrHkjlWVhM
+[project-timeline]: https://i.imgur.com/rSr6uvm.png
