@@ -15,17 +15,16 @@ services:
       MONGO_PASSWORD: 'root'
     ports:
       - 8888:7777
-    restart: always
+    restart: unless-stopped
 
   mongo:
     image: mongo
     container_name: mongo
     ports:
-      - "27018:27017"
+      - "27017:27017"
     volumes:
       - /data/db:/data/db
     environment:
       MONGO_INITDB_DATABASE: knowledgehub
       MONGO_PORT: 27017
-
-    restart: always
+    restart: unless-stopped
