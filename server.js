@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const port = process.env.PORT || 7777;
 const mongo_port = process.env.MONGO_PORT || 27017;
-const mongo_username = process.env.MONGO_USERNAME || 'root';
-const mongo_password = process.env.MONGO_PASSWORD || 'root';
 const path = require('path');
 
 // set urlencoded

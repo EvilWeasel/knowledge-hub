@@ -11,10 +11,8 @@ services:
     environment:
       NODE_ENV: production
       MONGO_PORT: 27017
-      MONGO_USERNAME: 'root'
-      MONGO_PASSWORD: 'root'
     ports:
-      - 8888:7777
+      - 7777:7777
     restart: unless-stopped
 
   mongo:
@@ -25,6 +23,6 @@ services:
     volumes:
       - /data/db:/data/db
     environment:
-      MONGO_INITDB_DATABASE: knowledgehub
+      MONGO_INITDB_DATABASE: knowledge-hub
       MONGO_PORT: 27017
     restart: unless-stopped
