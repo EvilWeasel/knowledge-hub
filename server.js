@@ -9,7 +9,7 @@ const path = require('path');
 // set urlencoded
 // makes all request parameters available
 // e.g. req.body.username
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // setup method override
 // allows us to use PUT and DELETE requests in forms instead of just POST / GET
@@ -27,22 +27,22 @@ app.set('views', path.join(__dirname, 'views'));
 
 // connect to mongo-db
 //mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
-    //useNewUrlParser: true,
-    //useUnifiedTopology:true,
-    //auth:{
-        //username: 'root',
-        //password: 'root'
-    //}
+//useNewUrlParser: true,
+//useUnifiedTopology:true,
+//auth:{
+//username: 'root',
+//password: 'root'
+//}
 //});
 
 //mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
-    //authSource: "admin",
-    //user: mongo_username,
-    //pass: mongo_password,
-    //useNewUrlParser: true,
-    //useUnifiedTopology: true,
-    //useCreateIndex: true,
-    //useFindAndModify: false,
+//authSource: "admin",
+//user: mongo_username,
+//pass: mongo_password,
+//useNewUrlParser: true,
+//useUnifiedTopology: true,
+//useCreateIndex: true,
+//useFindAndModify: false,
 //});
 
 mongoose.connect(`mongodb://mongo:${mongo_port}/knowledge-hub`, {
@@ -55,6 +55,6 @@ app.use('/', r_index);
 app.use('/articles', r_articles);
 
 // add route for static files
-app.use('/static' ,express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.listen(port)
