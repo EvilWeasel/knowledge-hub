@@ -235,12 +235,11 @@ However it also highlighted many things I didn't plan for. I wanted to document 
 
 To debug inside the dev-container just make sure nodemon is running (should be default) and use the default debug config, which should automatically attach to nodemon.
 
-ToDo: 
+ToDo:
 
-  - [ ] Remove the start of nodemon from the devcontainer-setup --> always showing `Configuring Dev Container...`
+- [ ] Remove the start of nodemon from the devcontainer-setup --> always showing `Configuring Dev Container...`
 
-  - [ ] Fix vscode internal debugger not working when attaching --> watch / callstack / breakpoints not working
-
+- [ ] Fix vscode internal debugger not working when attaching --> watch / callstack / breakpoints not working
 
 [remote-container]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 [docker]: https://docs.docker.com/get-docker/
